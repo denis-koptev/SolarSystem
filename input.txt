@@ -1,0 +1,7 @@
+Sun 30 50 550 350
+Mercury white 2 7 6 470 350
+Venus magenta 4 11 5 430 350
+Earth blue 3 10 4 400 350
+Mars red 2 7 2 350 350
+Uranus green 6 15 3 270 350
+Pluto gray 1 5 1 230 350
