@@ -1,0 +1,42 @@
+==00:00:00:00.000 23729== Memcheck, a memory error detector
+==00:00:00:00.000 23729== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==00:00:00:00.000 23729== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==00:00:00:00.000 23729== Command: ./solar_interface_win input2.txt
+==00:00:00:00.000 23729== 
+Qt: XKEYBOARD extension not present on the X server.
+Xlib:  extension "RANDR" missing on display ":1.0".
+Sun30
+==00:00:00:22.719 23729== 
+==00:00:00:22.720 23729== HEAP SUMMARY:
+==00:00:00:22.720 23729==     in use at exit: 1,814,390 bytes in 19,529 blocks
+==00:00:00:22.720 23729==   total heap usage: 291,799 allocs, 272,270 frees, 45,508,659 bytes allocated
+==00:00:00:22.720 23729== 
+==00:00:00:22.881 23729== 60 bytes in 1 blocks are definitely lost in loss record 5,760 of 9,005
+==00:00:00:22.881 23729==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==00:00:00:22.881 23729==    by 0x4010340: _dl_signal_error (dl-error.c:90)
+==00:00:00:22.881 23729==    by 0x401504B: _dl_open (dl-open.c:714)
+==00:00:00:22.881 23729==    by 0x8978F08: dlopen_doit (dlopen.c:66)
+==00:00:00:22.881 23729==    by 0x4010573: _dl_catch_error (dl-error.c:187)
+==00:00:00:22.881 23729==    by 0x8979570: _dlerror_run (dlerror.c:163)
+==00:00:00:22.881 23729==    by 0x8978FA0: dlopen@@GLIBC_2.2.5 (dlopen.c:87)
+==00:00:00:22.881 23729==    by 0x11F9CCF3: ???
+==00:00:00:22.881 23729==    by 0x11F9D06D: ???
+==00:00:00:22.881 23729==    by 0x40106C9: call_init.part.0 (dl-init.c:72)
+==00:00:00:22.881 23729==    by 0x40107DA: call_init (dl-init.c:30)
+==00:00:00:22.881 23729==    by 0x40107DA: _dl_init (dl-init.c:120)
+==00:00:00:22.881 23729==    by 0x40158F1: dl_open_worker (dl-open.c:575)
+==00:00:00:22.881 23729== 
+==00:00:00:22.896 23729== LEAK SUMMARY:
+==00:00:00:22.896 23729==    definitely lost: 60 bytes in 1 blocks
+==00:00:00:22.896 23729==    indirectly lost: 0 bytes in 0 blocks
+==00:00:00:22.896 23729==      possibly lost: 0 bytes in 0 blocks
+==00:00:00:22.896 23729==    still reachable: 123,122 bytes in 246 blocks
+==00:00:00:22.896 23729==                       of which reachable via heuristic:
+==00:00:00:22.896 23729==                         length64           : 7,960 bytes in 100 blocks
+==00:00:00:22.896 23729==                         newarray           : 2,192 bytes in 57 blocks
+==00:00:00:22.896 23729==         suppressed: 1,427,616 bytes in 18,147 blocks
+==00:00:00:22.896 23729== Reachable blocks (those to which a pointer was found) are not shown.
+==00:00:00:22.896 23729== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==00:00:00:22.896 23729== 
+==00:00:00:22.896 23729== For counts of detected and suppressed errors, rerun with: -v
+==00:00:00:22.896 23729== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 37 from 37)

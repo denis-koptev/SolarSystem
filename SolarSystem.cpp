@@ -12,46 +12,46 @@ SolarSystem::SolarSystem()
 {}
 
 SolarSystem::SolarSystem(const Star & star_, const vector & planets_)
-	: star(star_)
+    : star(star_)
 {
-	for (c_iterator i = planets_.begin(); i != planets_.end(); ++i)
-	{
-		planets.push_back(*i);
-	}
+    for (c_iterator i = planets_.begin(); i != planets_.end(); ++i)
+    {
+        planets.push_back(*i);
+    }
 }
 
 void SolarSystem::setStar(const Star & star)
 {
-	this->star = star;
+    this->star = star;
 }
 
 void SolarSystem::setPlanets(const vector & planets_)
 {
-	for (c_iterator i = planets_.begin(); i != planets_.end(); ++i)
-	{
-		planets.push_back(*i);
-	}
+    for (c_iterator i = planets_.begin(); i != planets_.end(); ++i)
+    {
+        planets.push_back(*i);
+    }
 }
 
 Star SolarSystem::getStar() const
 {
-	return star;
+    return star;
 }
 
 std::vector<Planet> SolarSystem::getPlanets() const
 {
-	return planets;
+    return planets;
 }
 
 void SolarSystem::planetsMovement(double time)
 {
-	for (iterator i = planets.begin(); i != planets.end(); i++)
-	{
-		i->setPositionX(star.getPosition().getX() +
-                        i->getOrbit() * cos(i->getStartTime() + time * i->getSpeed()));
-		i->setPositionY(star.getPosition().getY() +
-		                i->getOrbit() * sin(i->getStartTime() + time * i->getSpeed()));
-	}
+    for (iterator i = planets.begin(); i != planets.end(); i++)
+    {
+        i->setPositionX(star.getPosition().getX() +
+                i->getOrbit() * cos(i->getStartTime() + time * i->getSpeed()));
+        i->setPositionY(star.getPosition().getY() +
+                i->getOrbit() * sin(i->getStartTime() + time * i->getSpeed()));
+    }
     if (CheckCollision())
     {
         throw std::runtime_error("Collision detected");
@@ -60,49 +60,49 @@ void SolarSystem::planetsMovement(double time)
 
 std::string SolarSystem::toString() const
 {
-	std::string str = star.toString() + "\n";
+    std::string str = star.toString() + "\n";
 
-	for (c_iterator i = planets.begin(); i != planets.end(); i++) {
-		str += "\n" + i->toString() + "\n";
-	}
+    for (c_iterator i = planets.begin(); i != planets.end(); i++) {
+        str += "\n" + i->toString() + "\n";
+    }
 
-	return str;
+    return str;
 }
 
 void SolarSystem::output(const char *filename, bool append) const
 {
-	if (filename == NULL)
-	{
-		throw std::invalid_argument("Wrong filename!");
-	}
+    if (filename == NULL)
+    {
+        throw std::invalid_argument("Wrong filename!");
+    }
 
-	std::ofstream fout;
+    std::ofstream fout;
 
-	if (append)
-	{
-		fout.open(filename, std::ios::out | std::ios::app);
-	}
-	else
-	{
-		fout.open(filename);
-	}
+    if (append)
+    {
+        fout.open(filename, std::ios::out | std::ios::app);
+    }
+    else
+    {
+        fout.open(filename);
+    }
 
-	if (!fout)
-	{
-		throw std::runtime_error("File wasn't opened!");
-	}
+    if (!fout)
+    {
+        throw std::runtime_error("File wasn't opened!");
+    }
 
-	fout << toString() << std::endl;
+    fout << toString() << std::endl;
 }
 
 void SolarSystem::input(const char * filename)
 {
-	planets.clear();
+    planets.clear();
 
-	if (filename == NULL)
-	{
-		throw std::invalid_argument("Wrong filename!");
-	}
+    if (filename == NULL)
+    {
+        throw std::invalid_argument("Wrong filename!");
+    }
 
     QFile file(filename);
     if (!file.open(QFile::ReadOnly))
@@ -111,21 +111,21 @@ void SolarSystem::input(const char * filename)
     };
     QTextStream fin(&file);
 
-	// Firt record - is star
+    // Firt record - is star
     QString name, color;
-	double mass, rad, x, y, speed;
-	fin >> name >> mass >> rad >> x >> y;
+    double mass, rad, x, y, speed;
+    fin >> name >> mass >> rad >> x >> y;
     std::cout << name.toStdString() << mass << std::endl;
     star = Star(name.toStdString(), mass, rad, Coordinates(x, y));
-	// Then - planets
+    // Then - planets
     while (!fin.atEnd())
-	{
+    {
         QString name = "";
         fin >> name >> color >> mass >> rad >> speed >> x >> y;
 
         if (name == "")
-		{
-			continue;
+        {
+            continue;
         }
 
         planets.push_back(Planet(name.toStdString(), color.toStdString(), mass, rad, speed, Coordinates(x, y)));
@@ -136,9 +136,9 @@ void SolarSystem::input(const char * filename)
     calc_start();
 
     std::sort(planets.begin(), planets.end(), [](Planet & lhs, Planet & rhs)
-    {
-       return (lhs.getOrbit() < rhs.getOrbit());
-    });
+            {
+            return (lhs.getOrbit() < rhs.getOrbit());
+            });
 }
 
 void SolarSystem::save(const char * filename) const
@@ -151,52 +151,52 @@ void SolarSystem::save(const char * filename) const
     QTextStream fout(&file);
 
     fout << star.getName().c_str() << " " << star.getMass() << " "
-	     << star.getRad() << " " << star.getPosition().getX()
-         << " " << star.getPosition().getY() << "\n";
+        << star.getRad() << " " << star.getPosition().getX()
+        << " " << star.getPosition().getY() << "\n";
 
-	for (c_iterator i = planets.begin(); i != planets.end(); ++i)
-	{
+    for (c_iterator i = planets.begin(); i != planets.end(); ++i)
+    {
         fout << i->getName().c_str() << " " << i->getColor().c_str()
-		     << " " << i->getMass() << " " << i->getRad()
-		     << " " << i->getSpeed() << " " << i->getPosition().getX()
-             << " " << i->getPosition().getY() << "\n";
-	}
+            << " " << i->getMass() << " " << i->getRad()
+            << " " << i->getSpeed() << " " << i->getPosition().getX()
+            << " " << i->getPosition().getY() << "\n";
+    }
 
     file.close();
 }
 
 size_t SolarSystem::getSize() const
 {
-	return planets.size();
+    return planets.size();
 }
 
 void SolarSystem::calc_start()
 {
-	for (iterator i = planets.begin(); i != planets.end(); ++i)
-	{
-		i->setOrbit(std::sqrt(std::pow(i->getPosition().getX()
-		                               - star.getPosition().getX(), 2)
-		                      + std::pow(i->getPosition().getY()
-		                                 - star.getPosition().getY(), 2)));
+    for (iterator i = planets.begin(); i != planets.end(); ++i)
+    {
+        i->setOrbit(std::sqrt(std::pow(i->getPosition().getX()
+                        - star.getPosition().getX(), 2)
+                    + std::pow(i->getPosition().getY()
+                        - star.getPosition().getY(), 2)));
 
-		i->setStartTime(std::atan(
-                            (i->getPosition().getY() - star.getPosition().getY())
-		                    /
-                            (i->getPosition().getX() - star.getPosition().getX())
-		                ));
+        i->setStartTime(std::atan(
+                    (i->getPosition().getY() - star.getPosition().getY())
+                    /
+                    (i->getPosition().getX() - star.getPosition().getX())
+                    ));
 
-		if (i->getPosition().getX() - star.getPosition().getX() < 0)
-		{
-			i->setStartTime(3.14 + i->getStartTime());
-		}
-	}
+        if (i->getPosition().getX() - star.getPosition().getX() < 0)
+        {
+            i->setStartTime(3.14 + i->getStartTime());
+        }
+    }
 }
 
 bool SolarSystem::CheckCollision() const
 {
     double dist = std::sqrt(
-                std::pow(star.getPosition().getX() - planets[0].getPosition().getX(), 2) +
-                std::pow(star.getPosition().getY() - planets[0].getPosition().getY(), 2));
+            std::pow(star.getPosition().getX() - planets[0].getPosition().getX(), 2) +
+            std::pow(star.getPosition().getY() - planets[0].getPosition().getY(), 2));
     if (dist < star.getRad() + planets[0].getRad())
     {
         return true;
@@ -205,8 +205,8 @@ bool SolarSystem::CheckCollision() const
     for (c_iterator i = planets.begin(); i != planets.end() - 1; ++i)
     {
         dist = std::sqrt(
-                    std::pow(i->getPosition().getX() - (i+1)->getPosition().getX(), 2) +
-                    std::pow(i->getPosition().getY() - (i+1)->getPosition().getY(), 2));
+                std::pow(i->getPosition().getX() - (i+1)->getPosition().getX(), 2) +
+                std::pow(i->getPosition().getY() - (i+1)->getPosition().getY(), 2));
         if (dist < i->getRad() + (i+1)->getRad())
         {
             return true;

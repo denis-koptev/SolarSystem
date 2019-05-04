@@ -6,20 +6,20 @@
 
 class Coordinates
 {
-	private:
-		double x0, y0;
+    private:
+        double x0, y0;
 
-	public:
-		Coordinates();
-		Coordinates (double x, double y);
+    public:
+        Coordinates();
+        Coordinates (double x, double y);
 
-		void setX (double x);
-		void setY(double y);
+        void setX (double x);
+        void setY(double y);
 
-		double getX () const;
-		double getY () const;
+        double getX () const;
+        double getY () const;
 
-		Coordinates & operator = (const Coordinates & that);
+        Coordinates & operator = (const Coordinates & that);
 
 };
 

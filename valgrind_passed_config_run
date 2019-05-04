@@ -1,0 +1,725 @@
+==00:00:00:00.000 22503== Memcheck, a memory error detector
+==00:00:00:00.000 22503== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==00:00:00:00.000 22503== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==00:00:00:00.000 22503== Command: ./solar_interface_win input.txt
+==00:00:00:00.000 22503== 
+--00:00:00:00.000 22503-- Valgrind options:
+--00:00:00:00.000 22503--    --undef-value-errors=no
+--00:00:00:00.000 22503--    --leak-check=full
+--00:00:00:00.000 22503--    --track-fds=yes
+--00:00:00:00.000 22503--    -v
+--00:00:00:00.000 22503--    --time-stamp=yes
+--00:00:00:00.000 22503--    --suppressions=suppresions
+--00:00:00:00.000 22503-- Contents of /proc/version:
+--00:00:00:00.000 22503--   Linux version 4.4.0-145-generic (buildd@lcy01-amd64-027) (gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.10) ) #171-Ubuntu SMP Tue Mar 26 12:43:40 UTC 2019
+--00:00:00:00.000 22503-- 
+--00:00:00:00.000 22503-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-avx-avx2-bmi
+--00:00:00:00.000 22503-- Page sizes: currently 4096, max supported 4096
+--00:00:00:00.000 22503-- Valgrind library directory: /usr/lib/valgrind
+--00:00:00:00.000 22503-- Reading syms from /root/SolarSystem/solar_interface_win
+--00:00:00:00.001 22503-- Reading syms from /lib/x86_64-linux-gnu/ld-2.23.so
+--00:00:00:00.001 22503--   Considering /lib/x86_64-linux-gnu/ld-2.23.so ..
+--00:00:00:00.002 22503--   .. CRC mismatch (computed 10d8ea02 wanted 4fdda1aa)
+--00:00:00:00.002 22503--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.23.so ..
+--00:00:00:00.006 22503--   .. CRC is valid
+--00:00:00:00.017 22503-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--00:00:00:00.017 22503--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--00:00:00:00.028 22503--   .. CRC mismatch (computed eea41ea9 wanted 2009db78)
+--00:00:00:00.028 22503--    object doesn't have a symbol table
+--00:00:00:00.028 22503--    object doesn't have a dynamic symbol table
+--00:00:00:00.039 22503-- Scheduler: using generic scheduler lock implementation.
+--00:00:00:00.042 22503-- Reading suppressions file: suppresions
+--00:00:00:00.042 22503-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==00:00:00:00.043 22503== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-22503-by-root-on-???
+==00:00:00:00.043 22503== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-22503-by-root-on-???
+==00:00:00:00.043 22503== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-22503-by-root-on-???
+==00:00:00:00.043 22503== 
+==00:00:00:00.043 22503== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==00:00:00:00.043 22503== don't want to do, unless you know exactly what you're doing,
+==00:00:00:00.043 22503== or are doing some strange experiment):
+==00:00:00:00.043 22503==   /usr/lib/valgrind/../../bin/vgdb --pid=22503 ...command...
+==00:00:00:00.043 22503== 
+==00:00:00:00.043 22503== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==00:00:00:00.043 22503==   /path/to/gdb ./solar_interface_win
+==00:00:00:00.043 22503== and then give GDB the following command
+==00:00:00:00.043 22503==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=22503
+==00:00:00:00.043 22503== --pid is optional if only one valgrind process is running
+==00:00:00:00.043 22503== 
+--00:00:00:00.054 22503-- REDIR: 0x401cf10 (ld-linux-x86-64.so.2:strlen) redirected to 0x3809e181 (???)
+--00:00:00:00.085 22503-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--00:00:00:00.085 22503--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--00:00:00:00.085 22503--   .. CRC mismatch (computed 2567ccf6 wanted 49420590)
+--00:00:00:00.085 22503--    object doesn't have a symbol table
+--00:00:00:00.089 22503-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--00:00:00:00.089 22503--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--00:00:00:00.090 22503--   .. CRC mismatch (computed 0e27c9a8 wanted ac585421)
+--00:00:00:00.090 22503--    object doesn't have a symbol table
+==00:00:00:00.091 22503== WARNING: new redirection conflicts with existing -- ignoring it
+--00:00:00:00.091 22503--     old: 0x0401cf10 (strlen              ) R-> (0000.0) 0x3809e181 ???
+--00:00:00:00.091 22503--     new: 0x0401cf10 (strlen              ) R-> (2007.0) 0x04c31020 strlen
+--00:00:00:00.093 22503-- REDIR: 0x401b860 (ld-linux-x86-64.so.2:index) redirected to 0x4c30bc0 (index)
+--00:00:00:00.094 22503-- REDIR: 0x401ba80 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c320d0 (strcmp)
+--00:00:00:00.096 22503-- REDIR: 0x401dc70 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c35270 (mempcpy)
+--00:00:00:00.104 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1
+--00:00:00:00.104 22503--    object doesn't have a symbol table
+--00:00:00:00.163 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.5.1
+--00:00:00:00.163 22503--    object doesn't have a symbol table
+--00:00:00:00.207 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.5.1
+--00:00:00:00.207 22503--    object doesn't have a symbol table
+--00:00:00:00.241 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21
+--00:00:00:00.241 22503--   Considering /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21 ..
+--00:00:00:00.248 22503--   .. CRC mismatch (computed b2e7dc97 wanted c9833bdf)
+--00:00:00:00.248 22503--    object doesn't have a symbol table
+--00:00:00:00.272 22503-- Reading syms from /lib/x86_64-linux-gnu/libm-2.23.so
+--00:00:00:00.273 22503--   Considering /lib/x86_64-linux-gnu/libm-2.23.so ..
+--00:00:00:00.277 22503--   .. CRC mismatch (computed d1bcd7c2 wanted c6824701)
+--00:00:00:00.277 22503--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libm-2.23.so ..
+--00:00:00:00.288 22503--   .. CRC is valid
+--00:00:00:00.321 22503-- Reading syms from /lib/x86_64-linux-gnu/libgcc_s.so.1
+--00:00:00:00.322 22503--   Considering /lib/x86_64-linux-gnu/libgcc_s.so.1 ..
+--00:00:00:00.322 22503--   .. CRC mismatch (computed b9a68419 wanted 29d51b00)
+--00:00:00:00.322 22503--    object doesn't have a symbol table
+--00:00:00:00.323 22503-- Reading syms from /lib/x86_64-linux-gnu/libc-2.23.so
+--00:00:00:00.323 22503--   Considering /lib/x86_64-linux-gnu/libc-2.23.so ..
+--00:00:00:00.331 22503--   .. CRC mismatch (computed 10016417 wanted 1f868c97)
+--00:00:00:00.331 22503--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.23.so ..
+--00:00:00:00.376 22503--   .. CRC is valid
+--00:00:00:00.606 22503-- Reading syms from /lib/x86_64-linux-gnu/libpthread-2.23.so
+--00:00:00:00.606 22503--   Considering /usr/lib/debug/.build-id/b1/7c21299099640a6d863e423d99265824e7bb16.debug ..
+--00:00:00:00.606 22503--   .. build-id is valid
+--00:00:00:00.626 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2
+--00:00:00:00.626 22503--    object doesn't have a symbol table
+--00:00:00:00.629 22503-- Reading syms from /lib/x86_64-linux-gnu/libglib-2.0.so.0.4800.2
+--00:00:00:00.629 22503--    object doesn't have a symbol table
+--00:00:00:00.639 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0
+--00:00:00:00.639 22503--   Considering /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0 ..
+--00:00:00:00.645 22503--   .. CRC mismatch (computed 2d6b0194 wanted c4b33c13)
+--00:00:00:00.645 22503--    object doesn't have a symbol table
+--00:00:00:00.653 22503-- Reading syms from /lib/x86_64-linux-gnu/libpng12.so.0.54.0
+--00:00:00:00.653 22503--   Considering /lib/x86_64-linux-gnu/libpng12.so.0.54.0 ..
+--00:00:00:00.653 22503--   .. CRC mismatch (computed 6f238d5c wanted 8f335665)
+--00:00:00:00.653 22503--    object doesn't have a symbol table
+--00:00:00:00.655 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libharfbuzz.so.0.10000.1
+--00:00:00:00.655 22503--    object doesn't have a symbol table
+--00:00:00:00.657 22503-- Reading syms from /lib/x86_64-linux-gnu/libz.so.1.2.8
+--00:00:00:00.657 22503--    object doesn't have a symbol table
+--00:00:00:00.658 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/mesa/libGL.so.1.2.0
+--00:00:00:00.658 22503--    object doesn't have a symbol table
+--00:00:00:00.662 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libicui18n.so.55.1
+--00:00:00:00.662 22503--    object doesn't have a symbol table
+--00:00:00:00.686 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libicuuc.so.55.1
+--00:00:00:00.686 22503--    object doesn't have a symbol table
+--00:00:00:00.699 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libpcre16.so.3.13.2
+--00:00:00:00.699 22503--   Considering /usr/lib/x86_64-linux-gnu/libpcre16.so.3.13.2 ..
+--00:00:00:00.700 22503--   .. CRC mismatch (computed 9ecde64e wanted f31ce157)
+--00:00:00:00.700 22503--    object doesn't have a symbol table
+--00:00:00:00.702 22503-- Reading syms from /lib/x86_64-linux-gnu/libdl-2.23.so
+--00:00:00:00.702 22503--   Considering /lib/x86_64-linux-gnu/libdl-2.23.so ..
+--00:00:00:00.702 22503--   .. CRC mismatch (computed ca8e05bc wanted c502f875)
+--00:00:00:00.702 22503--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libdl-2.23.so ..
+--00:00:00:00.703 22503--   .. CRC is valid
+--00:00:00:00.704 22503-- Reading syms from /lib/x86_64-linux-gnu/librt-2.23.so
+--00:00:00:00.705 22503--   Considering /lib/x86_64-linux-gnu/librt-2.23.so ..
+--00:00:00:00.705 22503--   .. CRC mismatch (computed bbc6ed8b wanted 6e62fb7a)
+--00:00:00:00.705 22503--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/librt-2.23.so ..
+--00:00:00:00.706 22503--   .. CRC is valid
+--00:00:00:00.710 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libffi.so.6.0.4
+--00:00:00:00.710 22503--    object doesn't have a symbol table
+--00:00:00:00.711 22503-- Reading syms from /lib/x86_64-linux-gnu/libpcre.so.3.13.2
+--00:00:00:00.711 22503--   Considering /lib/x86_64-linux-gnu/libpcre.so.3.13.2 ..
+--00:00:00:00.713 22503--   .. CRC mismatch (computed 276b70fd wanted 22183252)
+--00:00:00:00.713 22503--    object doesn't have a symbol table
+--00:00:00:00.715 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+--00:00:00:00.715 22503--    object doesn't have a symbol table
+--00:00:00:00.716 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libfreetype.so.6.12.1
+--00:00:00:00.717 22503--    object doesn't have a symbol table
+--00:00:00:00.721 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libgraphite2.so.3.0.1
+--00:00:00:00.721 22503--    object doesn't have a symbol table
+--00:00:00:00.722 22503-- Reading syms from /lib/x86_64-linux-gnu/libexpat.so.1.6.0
+--00:00:00:00.722 22503--    object doesn't have a symbol table
+--00:00:00:00.724 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libxcb-dri3.so.0.0.0
+--00:00:00:00.724 22503--    object doesn't have a symbol table
+--00:00:00:00.724 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libxcb-present.so.0.0.0
+--00:00:00:00.724 22503--    object doesn't have a symbol table
+--00:00:00:00.724 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libxcb-sync.so.1.0.0
+--00:00:00:00.725 22503--    object doesn't have a symbol table
+--00:00:00:00.725 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libxshmfence.so.1.0.0
+--00:00:00:00.725 22503--    object doesn't have a symbol table
+--00:00:00:00.725 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libglapi.so.0.0.0
+--00:00:00:00.726 22503--    object doesn't have a symbol table
+--00:00:00:00.726 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+--00:00:00:00.726 22503--   Considering /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0 ..
+--00:00:00:00.726 22503--   .. CRC mismatch (computed b483887a wanted 38c83e44)
+--00:00:00:00.726 22503--    object doesn't have a symbol table
+--00:00:00:00.728 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libXdamage.so.1.1.0
+--00:00:00:00.728 22503--   Considering /usr/lib/x86_64-linux-gnu/libXdamage.so.1.1.0 ..
+--00:00:00:00.728 22503--   .. CRC mismatch (computed e9b9988d wanted 2077fd66)
+--00:00:00:00.728 22503--    object doesn't have a symbol table
+--00:00:00:00.728 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0
+--00:00:00:00.728 22503--    object doesn't have a symbol table
+--00:00:00:00.729 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libX11-xcb.so.1.0.0
+--00:00:00:00.729 22503--   Considering /usr/lib/x86_64-linux-gnu/libX11-xcb.so.1.0.0 ..
+--00:00:00:00.729 22503--   .. CRC mismatch (computed 98018579 wanted ddca8eec)
+--00:00:00:00.729 22503--    object doesn't have a symbol table
+--00:00:00:00.729 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libxcb-glx.so.0.0.0
+--00:00:00:00.729 22503--    object doesn't have a symbol table
+--00:00:00:00.731 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libxcb-dri2.so.0.0.0
+--00:00:00:00.731 22503--    object doesn't have a symbol table
+--00:00:00:00.731 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libXxf86vm.so.1.0.0
+--00:00:00:00.731 22503--    object doesn't have a symbol table
+--00:00:00:00.732 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+--00:00:00:00.732 22503--    object doesn't have a symbol table
+--00:00:00:00.733 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libicudata.so.55.1
+--00:00:00:00.733 22503--    object doesn't have a symbol table
+--00:00:00:00.733 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+--00:00:00:00.734 22503--   Considering /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0 ..
+--00:00:00:00.734 22503--   .. CRC mismatch (computed 256f5df8 wanted 5d40ac88)
+--00:00:00:00.734 22503--    object doesn't have a symbol table
+--00:00:00:00.734 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+--00:00:00:00.734 22503--    object doesn't have a symbol table
+--00:00:00:00.759 22503-- REDIR: 0x6815a00 (libc.so.6:strcasecmp) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--00:00:00:00.760 22503-- REDIR: 0x6811280 (libc.so.6:strcspn) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--00:00:00:00.761 22503-- REDIR: 0x6817cf0 (libc.so.6:strncasecmp) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--00:00:00:00.761 22503-- REDIR: 0x68136f0 (libc.so.6:strpbrk) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--00:00:00:00.761 22503-- REDIR: 0x6813a80 (libc.so.6:strspn) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--00:00:00:00.762 22503-- REDIR: 0x681514b (libc.so.6:memcpy@GLIBC_2.2.5) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--00:00:00:00.769 22503-- REDIR: 0x6811b20 (libc.so.6:strncmp) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--00:00:00:00.769 22503-- REDIR: 0x680fa80 (libc.so.6:index) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--00:00:00:00.769 22503-- REDIR: 0x68151b0 (libc.so.6:memset) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--00:00:00:00.770 22503-- REDIR: 0x6814bb0 (libc.so.6:bcmp) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--00:00:00:00.770 22503-- REDIR: 0x680fcd0 (libc.so.6:strcmp) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--00:00:00:00.770 22503-- REDIR: 0x689c210 (libc.so.6:__memcpy_chk) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--00:00:00:00.771 22503-- REDIR: 0x681a3f0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--00:00:00:00.783 22503-- REDIR: 0x6814630 (libc.so.6:strstr) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--00:00:00:00.784 22503-- REDIR: 0x68133c0 (libc.so.6:strncpy) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--00:00:00:00.784 22503-- REDIR: 0x6811ae0 (libc.so.6:strncat) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--00:00:00:00.785 22503-- REDIR: 0x689c2a0 (libc.so.6:__memmove_chk) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--00:00:00:00.785 22503-- REDIR: 0x6811160 (libc.so.6:strcpy) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--00:00:00:00.786 22503-- REDIR: 0x680f880 (libc.so.6:strcat) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--00:00:00:00.814 22503-- REDIR: 0x6813400 (libc.so.6:rindex) redirected to 0x4c308a0 (rindex)
+--00:00:00:00.832 22503-- REDIR: 0x680a130 (libc.so.6:malloc) redirected to 0x4c2db20 (malloc)
+--00:00:00:00.837 22503-- REDIR: 0x6811720 (libc.so.6:strlen) redirected to 0x4c30f60 (strlen)
+--00:00:00:00.842 22503-- REDIR: 0x680ad10 (libc.so.6:calloc) redirected to 0x4c2faa0 (calloc)
+--00:00:00:00.849 22503-- REDIR: 0x68d3ea0 (libc.so.6:__memcpy_avx_unaligned) redirected to 0x4c324a0 (memcpy@@GLIBC_2.14)
+--00:00:00:00.854 22503-- REDIR: 0x6825570 (libc.so.6:__strcmp_sse2_unaligned) redirected to 0x4c31f90 (strcmp)
+--00:00:00:00.864 22503-- REDIR: 0x680a6c0 (libc.so.6:realloc) redirected to 0x4c2fce0 (realloc)
+--00:00:00:00.866 22503-- REDIR: 0x68d39b0 (libc.so.6:__memmove_avx_unaligned) redirected to 0x4c32230 (memcpy@GLIBC_2.2.5)
+--00:00:00:00.869 22503-- REDIR: 0x680fab0 (libc.so.6:__GI_strchr) redirected to 0x4c30a00 (__GI_strchr)
+--00:00:00:00.870 22503-- REDIR: 0x682e7f0 (libc.so.6:__strcat_sse2_unaligned) redirected to 0x4c30c00 (strcat)
+--00:00:00:00.873 22503-- REDIR: 0x680a4f0 (libc.so.6:free) redirected to 0x4c2ed80 (free)
+--00:00:00:00.927 22503-- REDIR: 0x5f72e60 (libstdc++.so.6:operator new(unsigned long)) redirected to 0x4c2e080 (operator new(unsigned long))
+--00:00:00:00.940 22503-- REDIR: 0x68f8970 (libc.so.6:__memset_avx2) redirected to 0x4c344c0 (memset)
+--00:00:00:00.946 22503-- REDIR: 0x68f4430 (libc.so.6:__memcmp_sse4_1) redirected to 0x4c33cd0 (__memcmp_sse4_1)
+--00:00:00:00.970 22503-- REDIR: 0x6814bf0 (libc.so.6:__GI_memcmp) redirected to 0x4c33b90 (__GI_memcmp)
+--00:00:00:01.014 22503-- REDIR: 0x680fd10 (libc.so.6:__GI_strcmp) redirected to 0x4c31fe0 (__GI_strcmp)
+--00:00:00:01.014 22503-- REDIR: 0x6811b70 (libc.so.6:__GI_strncmp) redirected to 0x4c31710 (__GI_strncmp)
+--00:00:00:01.016 22503-- REDIR: 0x6814860 (libc.so.6:memchr) redirected to 0x4c32170 (memchr)
+--00:00:00:01.017 22503-- REDIR: 0x681c760 (libc.so.6:strchrnul) redirected to 0x4c34da0 (strchrnul)
+--00:00:00:01.019 22503-- REDIR: 0x68153b0 (libc.so.6:__GI_mempcpy) redirected to 0x4c34fa0 (__GI_mempcpy)
+--00:00:00:01.019 22503-- REDIR: 0x681a470 (libc.so.6:__GI_memcpy) redirected to 0x4c32b00 (__GI_memcpy)
+--00:00:00:01.035 22503-- REDIR: 0x682c000 (libc.so.6:__strncpy_sse2_unaligned) redirected to 0x4c31570 (__strncpy_sse2_unaligned)
+--00:00:00:01.040 22503-- REDIR: 0x68d3e90 (libc.so.6:__memcpy_chk_avx_unaligned) redirected to 0x4c35360 (__memcpy_chk)
+--00:00:00:01.097 22503-- REDIR: 0x5f70f10 (libstdc++.so.6:operator delete(void*)) redirected to 0x4c2f1e0 (operator delete(void*))
+--00:00:00:01.174 22503-- REDIR: 0x6814ff0 (libc.so.6:__GI_memmove) redirected to 0x4c347e0 (__GI_memmove)
+--00:00:00:01.296 22503-- REDIR: 0x5f72f10 (libstdc++.so.6:operator new[](unsigned long)) redirected to 0x4c2e7a0 (operator new[](unsigned long))
+--00:00:00:01.305 22503-- REDIR: 0x5f70f40 (libstdc++.so.6:operator delete[](void*)) redirected to 0x4c2f6e0 (operator delete[](void*))
+--00:00:00:01.335 22503-- REDIR: 0x68cba90 (libc.so.6:__strncmp_sse42) redirected to 0x4c317f0 (__strncmp_sse42)
+--00:00:00:01.401 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/qt5/plugins/platforms/libqxcb.so
+--00:00:00:01.401 22503--    object doesn't have a symbol table
+--00:00:00:01.402 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libQt5XcbQpa.so.5.5.1
+--00:00:00:01.402 22503--    object doesn't have a symbol table
+--00:00:00:01.408 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libXi.so.6.1.0
+--00:00:00:01.408 22503--    object doesn't have a symbol table
+--00:00:00:01.409 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libxcb-render-util.so.0.0.0
+--00:00:00:01.409 22503--    object doesn't have a symbol table
+--00:00:00:01.410 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libSM.so.6.0.1
+--00:00:00:01.410 22503--    object doesn't have a symbol table
+--00:00:00:01.410 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libICE.so.6.3.0
+--00:00:00:01.410 22503--    object doesn't have a symbol table
+--00:00:00:01.411 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libxcb-render.so.0.0.0
+--00:00:00:01.411 22503--    object doesn't have a symbol table
+--00:00:00:01.412 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libxcb-image.so.0.0.0
+--00:00:00:01.412 22503--   Considering /usr/lib/x86_64-linux-gnu/libxcb-image.so.0.0.0 ..
+--00:00:00:01.412 22503--   .. CRC mismatch (computed 5d343d58 wanted 546c97bc)
+--00:00:00:01.412 22503--    object doesn't have a symbol table
+--00:00:00:01.413 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libxcb-icccm.so.4.0.0
+--00:00:00:01.413 22503--   Considering /usr/lib/x86_64-linux-gnu/libxcb-icccm.so.4.0.0 ..
+--00:00:00:01.413 22503--   .. CRC mismatch (computed fa03b232 wanted 586b31d1)
+--00:00:00:01.413 22503--    object doesn't have a symbol table
+--00:00:00:01.414 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libxcb-xfixes.so.0.0.0
+--00:00:00:01.414 22503--    object doesn't have a symbol table
+--00:00:00:01.414 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libxcb-shm.so.0.0.0
+--00:00:00:01.414 22503--    object doesn't have a symbol table
+--00:00:00:01.415 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libxcb-randr.so.0.1.0
+--00:00:00:01.415 22503--    object doesn't have a symbol table
+--00:00:00:01.416 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libxcb-shape.so.0.0.0
+--00:00:00:01.416 22503--    object doesn't have a symbol table
+--00:00:00:01.416 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libxcb-keysyms.so.1.0.0
+--00:00:00:01.416 22503--   Considering /usr/lib/x86_64-linux-gnu/libxcb-keysyms.so.1.0.0 ..
+--00:00:00:01.416 22503--   .. CRC mismatch (computed 5d6afac7 wanted 6185a057)
+--00:00:00:01.416 22503--    object doesn't have a symbol table
+--00:00:00:01.417 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libxcb-xkb.so.1.0.0
+--00:00:00:01.417 22503--    object doesn't have a symbol table
+--00:00:00:01.418 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libxkbcommon-x11.so.0.0.0
+--00:00:00:01.418 22503--    object doesn't have a symbol table
+--00:00:00:01.419 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libfontconfig.so.1.9.0
+--00:00:00:01.419 22503--    object doesn't have a symbol table
+--00:00:00:01.421 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libxkbcommon.so.0.0.0
+--00:00:00:01.421 22503--    object doesn't have a symbol table
+--00:00:00:01.423 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libQt5DBus.so.5.5.1
+--00:00:00:01.423 22503--    object doesn't have a symbol table
+--00:00:00:01.427 22503-- Reading syms from /lib/x86_64-linux-gnu/libuuid.so.1.3.0
+--00:00:00:01.427 22503--    object doesn't have a symbol table
+--00:00:00:01.428 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libxcb-util.so.1.0.0
+--00:00:00:01.428 22503--   Considering /usr/lib/x86_64-linux-gnu/libxcb-util.so.1.0.0 ..
+--00:00:00:01.428 22503--   .. CRC mismatch (computed 34206838 wanted f9fe3e18)
+--00:00:00:01.428 22503--    object doesn't have a symbol table
+--00:00:00:01.429 22503-- Reading syms from /lib/x86_64-linux-gnu/libdbus-1.so.3.14.6
+--00:00:00:01.429 22503--    object doesn't have a symbol table
+--00:00:00:01.433 22503-- Reading syms from /lib/x86_64-linux-gnu/libsystemd.so.0.14.0
+--00:00:00:01.433 22503--    object doesn't have a symbol table
+--00:00:00:01.437 22503-- Reading syms from /lib/x86_64-linux-gnu/libselinux.so.1
+--00:00:00:01.438 22503--    object doesn't have a symbol table
+--00:00:00:01.439 22503-- Reading syms from /lib/x86_64-linux-gnu/liblzma.so.5.0.0
+--00:00:00:01.439 22503--    object doesn't have a symbol table
+--00:00:00:01.440 22503-- Reading syms from /lib/x86_64-linux-gnu/libgcrypt.so.20.0.5
+--00:00:00:01.441 22503--    object doesn't have a symbol table
+--00:00:00:01.445 22503-- Reading syms from /lib/x86_64-linux-gnu/libgpg-error.so.0.17.0
+--00:00:00:01.445 22503--    object doesn't have a symbol table
+--00:00:00:01.451 22503-- REDIR: 0x6815850 (libc.so.6:stpcpy) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--00:00:00:01.453 22503-- REDIR: 0x6815330 (libc.so.6:mempcpy) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--00:00:00:01.467 22503-- REDIR: 0x6814060 (libc.so.6:__GI_strstr) redirected to 0x4c354d0 (__strstr_sse2)
+--00:00:00:01.472 22503-- REDIR: 0x6830070 (libc.so.6:__strstr_sse2_unaligned) redirected to 0x4c35460 (strstr)
+--00:00:00:01.519 22503-- REDIR: 0x689c480 (libc.so.6:__strcpy_chk) redirected to 0x4c34e10 (__strcpy_chk)
+--00:00:00:01.700 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2
+--00:00:00:01.700 22503--   Considering /usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2 ..
+--00:00:00:01.701 22503--   .. CRC mismatch (computed 1e588ec0 wanted 349ee508)
+--00:00:00:01.701 22503--    object doesn't have a symbol table
+--00:00:00:01.701 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0
+--00:00:00:01.702 22503--   Considering /usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0 ..
+--00:00:00:01.702 22503--   .. CRC mismatch (computed 19f12a45 wanted d5c3c1e7)
+--00:00:00:01.702 22503--    object doesn't have a symbol table
+Qt: XKEYBOARD extension not present on the X server.
+--00:00:00:01.794 22503-- REDIR: 0x68118c0 (libc.so.6:strnlen) redirected to 0x4c30ee0 (strnlen)
+--00:00:00:01.868 22503-- REDIR: 0x68d0980 (libc.so.6:__strcasecmp_avx) redirected to 0x4c31860 (strcasecmp)
+--00:00:00:02.105 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/qt5/plugins/xcbglintegrations/libqxcb-glx-integration.so
+--00:00:00:02.105 22503--    object doesn't have a symbol table
+--00:00:00:02.116 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/qt5/plugins/xcbglintegrations/libqxcb-egl-integration.so
+--00:00:00:02.116 22503--    object doesn't have a symbol table
+--00:00:00:02.117 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/mesa-egl/libEGL.so.1.0.0
+--00:00:00:02.117 22503--    object doesn't have a symbol table
+--00:00:00:02.122 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libwayland-client.so.0.3.0
+--00:00:00:02.122 22503--    object doesn't have a symbol table
+--00:00:00:02.123 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libgbm.so.1.0.0
+--00:00:00:02.123 22503--    object doesn't have a symbol table
+--00:00:00:02.124 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libwayland-server.so.0.1.0
+--00:00:00:02.124 22503--    object doesn't have a symbol table
+--00:00:00:02.126 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libmirclient.so.9
+--00:00:00:02.126 22503--    object doesn't have a symbol table
+--00:00:00:02.137 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libmircommon.so.7
+--00:00:00:02.137 22503--    object doesn't have a symbol table
+--00:00:00:02.140 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libmirprotobuf.so.3
+--00:00:00:02.140 22503--    object doesn't have a symbol table
+--00:00:00:02.145 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libcapnp-0.5.3.so
+--00:00:00:02.145 22503--    object doesn't have a symbol table
+--00:00:00:02.149 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libmircore.so.1
+--00:00:00:02.149 22503--    object doesn't have a symbol table
+--00:00:00:02.150 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libboost_system.so.1.58.0
+--00:00:00:02.150 22503--    object doesn't have a symbol table
+--00:00:00:02.150 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libprotobuf-lite.so.9.0.1
+--00:00:00:02.150 22503--    object doesn't have a symbol table
+--00:00:00:02.153 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.58.0
+--00:00:00:02.153 22503--    object doesn't have a symbol table
+--00:00:00:02.154 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libkj-0.5.3.so
+--00:00:00:02.154 22503--    object doesn't have a symbol table
+--00:00:00:02.179 22503-- REDIR: 0x68d4240 (libc.so.6:__mempcpy_avx_unaligned) redirected to 0x4c34eb0 (mempcpy)
+--00:00:00:02.254 22503-- REDIR: 0x401ddc0 (ld-linux-x86-64.so.2:stpcpy) redirected to 0x4c342c0 (stpcpy)
+--00:00:00:02.270 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/dri/swrast_dri.so
+--00:00:00:02.270 22503--    object doesn't have a symbol table
+--00:00:00:02.355 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libsensors.so.4.4.0
+--00:00:00:02.355 22503--    object doesn't have a symbol table
+--00:00:00:02.356 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libdrm_nouveau.so.2.0.0
+--00:00:00:02.356 22503--    object doesn't have a symbol table
+--00:00:00:02.356 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libdrm_radeon.so.1.0.1
+--00:00:00:02.357 22503--    object doesn't have a symbol table
+--00:00:00:02.357 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libdrm_amdgpu.so.1.0.0
+--00:00:00:02.357 22503--    object doesn't have a symbol table
+--00:00:00:02.358 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libelf-0.165.so
+--00:00:00:02.358 22503--    object doesn't have a symbol table
+--00:00:00:02.359 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libLLVM-6.0.so.1
+--00:00:00:02.359 22503--    object doesn't have a symbol table
+--00:00:00:02.668 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libedit.so.2.0.53
+--00:00:00:02.668 22503--    object doesn't have a symbol table
+--00:00:00:02.670 22503-- Reading syms from /lib/x86_64-linux-gnu/libtinfo.so.5.9
+--00:00:00:02.670 22503--    object doesn't have a symbol table
+--00:00:00:02.671 22503-- Reading syms from /lib/x86_64-linux-gnu/libbsd.so.0.8.2
+--00:00:00:02.671 22503--    object doesn't have a symbol table
+--00:00:00:03.276 22503-- REDIR: 0x5f72ec0 (libstdc++.so.6:operator new(unsigned long, std::nothrow_t const&)) redirected to 0x4c2e350 (operator new(unsigned long, std::nothrow_t const&))
+--00:00:00:03.779 22503-- REDIR: 0x68d0860 (libc.so.6:__strspn_sse42) redirected to 0x4c35670 (strspn)
+--00:00:00:03.809 22503-- REDIR: 0x6815890 (libc.so.6:__GI_stpcpy) redirected to 0x4c33f80 (__GI_stpcpy)
+--00:00:00:03.821 22503-- REDIR: 0x6815a70 (libc.so.6:__GI___strcasecmp_l) redirected to 0x4c31c00 (__GI___strcasecmp_l)
+--00:00:00:03.831 22503-- REDIR: 0x681c550 (libc.so.6:rawmemchr) redirected to 0x4c34dd0 (rawmemchr)
+--00:00:00:03.950 22503-- REDIR: 0x680d600 (libc.so.6:posix_memalign) redirected to 0x4c300a0 (posix_memalign)
+--00:00:00:04.039 22503-- REDIR: 0x67bfca0 (libc.so.6:setenv) redirected to 0x4c35aa0 (setenv)
+--00:00:00:04.064 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/qt5/plugins/platformthemes/libappmenu-qt5.so
+--00:00:00:04.064 22503--    object doesn't have a symbol table
+--00:00:00:04.067 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libdbusmenu-qt5.so.2.6.0
+--00:00:00:04.067 22503--    object doesn't have a symbol table
+--00:00:00:04.069 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libgtk-x11-2.0.so.0.2400.30
+--00:00:00:04.069 22503--   Considering /usr/lib/x86_64-linux-gnu/libgtk-x11-2.0.so.0.2400.30 ..
+--00:00:00:04.089 22503--   .. CRC mismatch (computed d1df954b wanted b8cf255e)
+--00:00:00:04.089 22503--    object doesn't have a symbol table
+--00:00:00:04.132 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libgdk-x11-2.0.so.0.2400.30
+--00:00:00:04.132 22503--   Considering /usr/lib/x86_64-linux-gnu/libgdk-x11-2.0.so.0.2400.30 ..
+--00:00:00:04.136 22503--   .. CRC mismatch (computed 5954ed00 wanted 97a646e7)
+--00:00:00:04.136 22503--    object doesn't have a symbol table
+--00:00:00:04.142 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libgmodule-2.0.so.0.4800.2
+--00:00:00:04.143 22503--    object doesn't have a symbol table
+--00:00:00:04.143 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so.0.3800.1
+--00:00:00:04.143 22503--   Considering /usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so.0.3800.1 ..
+--00:00:00:04.143 22503--   .. CRC mismatch (computed 0bc691c3 wanted 81152a36)
+--00:00:00:04.143 22503--    object doesn't have a symbol table
+--00:00:00:04.144 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libatk-1.0.so.0.21809.1
+--00:00:00:04.144 22503--    object doesn't have a symbol table
+--00:00:00:04.146 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libcairo.so.2.11400.6
+--00:00:00:04.146 22503--    object doesn't have a symbol table
+--00:00:00:04.157 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so.0.3200.2
+--00:00:00:04.157 22503--    object doesn't have a symbol table
+--00:00:00:04.159 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.4800.2
+--00:00:00:04.159 22503--    object doesn't have a symbol table
+--00:00:00:04.178 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libpangoft2-1.0.so.0.3800.1
+--00:00:00:04.179 22503--   Considering /usr/lib/x86_64-linux-gnu/libpangoft2-1.0.so.0.3800.1 ..
+--00:00:00:04.179 22503--   .. CRC mismatch (computed 5cbf3a77 wanted 8423ec12)
+--00:00:00:04.179 22503--    object doesn't have a symbol table
+--00:00:00:04.180 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libpango-1.0.so.0.3800.1
+--00:00:00:04.180 22503--   Considering /usr/lib/x86_64-linux-gnu/libpango-1.0.so.0.3800.1 ..
+--00:00:00:04.182 22503--   .. CRC mismatch (computed ccd1b775 wanted 01083394)
+--00:00:00:04.182 22503--    object doesn't have a symbol table
+--00:00:00:04.185 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libXinerama.so.1.0.0
+--00:00:00:04.185 22503--   Considering /usr/lib/x86_64-linux-gnu/libXinerama.so.1.0.0 ..
+--00:00:00:04.185 22503--   .. CRC mismatch (computed 7bb99cdf wanted 61ad4d32)
+--00:00:00:04.185 22503--    object doesn't have a symbol table
+--00:00:00:04.185 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libXrandr.so.2.2.0
+--00:00:00:04.186 22503--    object doesn't have a symbol table
+--00:00:00:04.186 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libXcomposite.so.1.0.0
+--00:00:00:04.187 22503--   Considering /usr/lib/x86_64-linux-gnu/libXcomposite.so.1.0.0 ..
+--00:00:00:04.187 22503--   .. CRC mismatch (computed 95e939a0 wanted a74069c4)
+--00:00:00:04.187 22503--    object doesn't have a symbol table
+--00:00:00:04.188 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libpixman-1.so.0.33.6
+--00:00:00:04.188 22503--    object doesn't have a symbol table
+--00:00:00:04.192 22503-- Reading syms from /lib/x86_64-linux-gnu/libresolv-2.23.so
+--00:00:00:04.192 22503--   Considering /lib/x86_64-linux-gnu/libresolv-2.23.so ..
+--00:00:00:04.192 22503--   .. CRC mismatch (computed 7dfc00ab wanted 4cd5db61)
+--00:00:00:04.192 22503--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libresolv-2.23.so ..
+--00:00:00:04.194 22503--   .. CRC is valid
+--00:00:00:04.201 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libthai.so.0.2.4
+--00:00:00:04.201 22503--    object doesn't have a symbol table
+--00:00:00:04.203 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libdatrie.so.1.3.3
+--00:00:00:04.203 22503--    object doesn't have a symbol table
+--00:00:00:04.261 22503-- REDIR: 0x682cfe0 (libc.so.6:__stpcpy_sse2_unaligned) redirected to 0x4c34120 (__stpcpy_sse2_unaligned)
+--00:00:00:04.289 22503-- REDIR: 0x682b9d0 (libc.so.6:__strcpy_sse2_unaligned) redirected to 0x4c31040 (strcpy)
+Xlib:  extension "RANDR" missing on display ":1.0".
+--00:00:00:04.987 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/qt5/plugins/platforminputcontexts/libcomposeplatforminputcontextplugin.so
+--00:00:00:04.987 22503--    object doesn't have a symbol table
+--00:00:00:05.148 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libgnomeui-2.so.0.2400.5
+--00:00:00:05.148 22503--   Considering /usr/lib/x86_64-linux-gnu/libgnomeui-2.so.0.2400.5 ..
+--00:00:00:05.151 22503--   .. CRC mismatch (computed e22d3c7a wanted 66ef8055)
+--00:00:00:05.151 22503--    object doesn't have a symbol table
+--00:00:00:05.156 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libbonoboui-2.so.0.0.0
+--00:00:00:05.156 22503--   Considering /usr/lib/x86_64-linux-gnu/libbonoboui-2.so.0.0.0 ..
+--00:00:00:05.158 22503--   .. CRC mismatch (computed 06528761 wanted 83c4d2d8)
+--00:00:00:05.158 22503--    object doesn't have a symbol table
+--00:00:00:05.164 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libgnomecanvas-2.so.0.3000.3
+--00:00:00:05.164 22503--   Considering /usr/lib/x86_64-linux-gnu/libgnomecanvas-2.so.0.3000.3 ..
+--00:00:00:05.165 22503--   .. CRC mismatch (computed 4b0ddc79 wanted d4ce3489)
+--00:00:00:05.165 22503--    object doesn't have a symbol table
+--00:00:00:05.167 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libart_lgpl_2.so.2.3.21
+--00:00:00:05.167 22503--   Considering /usr/lib/x86_64-linux-gnu/libart_lgpl_2.so.2.3.21 ..
+--00:00:00:05.168 22503--   .. CRC mismatch (computed e991fa66 wanted 6ff4bc0b)
+--00:00:00:05.168 22503--    object doesn't have a symbol table
+--00:00:00:05.169 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libgnome-2.so.0.3200.1
+--00:00:00:05.169 22503--   Considering /usr/lib/x86_64-linux-gnu/libgnome-2.so.0.3200.1 ..
+--00:00:00:05.170 22503--   .. CRC mismatch (computed c66f2767 wanted c2ef7d72)
+--00:00:00:05.170 22503--    object doesn't have a symbol table
+--00:00:00:05.171 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libgnomevfs-2.so.0.2400.4
+--00:00:00:05.171 22503--   Considering /usr/lib/x86_64-linux-gnu/libgnomevfs-2.so.0.2400.4 ..
+--00:00:00:05.173 22503--   .. CRC mismatch (computed 9b79322e wanted 219252ac)
+--00:00:00:05.173 22503--    object doesn't have a symbol table
+--00:00:00:05.177 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libgconf-2.so.4.1.5
+--00:00:00:05.177 22503--   Considering /usr/lib/x86_64-linux-gnu/libgconf-2.so.4.1.5 ..
+--00:00:00:05.178 22503--   .. CRC mismatch (computed f2e50b21 wanted 3572a88e)
+--00:00:00:05.178 22503--    object doesn't have a symbol table
+--00:00:00:05.180 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libgnome-keyring.so.0.2.0
+--00:00:00:05.180 22503--    object doesn't have a symbol table
+--00:00:00:05.182 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libbonobo-2.so.0.0.0
+--00:00:00:05.182 22503--   Considering /usr/lib/x86_64-linux-gnu/libbonobo-2.so.0.0.0 ..
+--00:00:00:05.184 22503--   .. CRC mismatch (computed 68ed29d0 wanted d8969382)
+--00:00:00:05.184 22503--    object doesn't have a symbol table
+--00:00:00:05.188 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libbonobo-activation.so.4.0.0
+--00:00:00:05.188 22503--   Considering /usr/lib/x86_64-linux-gnu/libbonobo-activation.so.4.0.0 ..
+--00:00:00:05.189 22503--   .. CRC mismatch (computed 245ec296 wanted f08f9741)
+--00:00:00:05.189 22503--    object doesn't have a symbol table
+--00:00:00:05.190 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libORBit-2.so.0.1.0
+--00:00:00:05.190 22503--   Considering /usr/lib/x86_64-linux-gnu/libORBit-2.so.0.1.0 ..
+--00:00:00:05.192 22503--   .. CRC mismatch (computed 43475268 wanted 166893d8)
+--00:00:00:05.192 22503--    object doesn't have a symbol table
+--00:00:00:05.195 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.3
+--00:00:00:05.195 22503--    object doesn't have a symbol table
+--00:00:00:05.209 22503-- Reading syms from /lib/x86_64-linux-gnu/libpopt.so.0.0.0
+--00:00:00:05.209 22503--    object doesn't have a symbol table
+--00:00:00:05.210 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libgailutil.so.18.0.1
+--00:00:00:05.210 22503--   Considering /usr/lib/x86_64-linux-gnu/libgailutil.so.18.0.1 ..
+--00:00:00:05.210 22503--   .. CRC mismatch (computed 30596a91 wanted 72e69b9a)
+--00:00:00:05.210 22503--    object doesn't have a symbol table
+--00:00:00:05.213 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libgthread-2.0.so.0.4800.2
+--00:00:00:05.213 22503--    object doesn't have a symbol table
+--00:00:00:05.214 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libcanberra.so.0.2.5
+--00:00:00:05.214 22503--   Considering /usr/lib/x86_64-linux-gnu/libcanberra.so.0.2.5 ..
+--00:00:00:05.214 22503--   .. CRC mismatch (computed 56f35b66 wanted 42445ea3)
+--00:00:00:05.214 22503--    object doesn't have a symbol table
+--00:00:00:05.216 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libdbus-glib-1.so.2.3.3
+--00:00:00:05.216 22503--    object doesn't have a symbol table
+--00:00:00:05.218 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libgnutls.so.30.6.2
+--00:00:00:05.218 22503--    object doesn't have a symbol table
+--00:00:00:05.227 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libavahi-glib.so.1.0.2
+--00:00:00:05.227 22503--    object doesn't have a symbol table
+--00:00:00:05.227 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libavahi-common.so.3.5.3
+--00:00:00:05.227 22503--    object doesn't have a symbol table
+--00:00:00:05.228 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libavahi-client.so.3.2.9
+--00:00:00:05.228 22503--    object doesn't have a symbol table
+--00:00:00:05.229 22503-- Reading syms from /lib/x86_64-linux-gnu/libutil-2.23.so
+--00:00:00:05.230 22503--   Considering /lib/x86_64-linux-gnu/libutil-2.23.so ..
+--00:00:00:05.230 22503--   .. CRC mismatch (computed 9de40929 wanted 7bea5784)
+--00:00:00:05.230 22503--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libutil-2.23.so ..
+--00:00:00:05.230 22503--   .. CRC is valid
+--00:00:00:05.231 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libORBitCosNaming-2.so.0.1.0
+--00:00:00:05.231 22503--   Considering /usr/lib/x86_64-linux-gnu/libORBitCosNaming-2.so.0.1.0 ..
+--00:00:00:05.232 22503--   .. CRC mismatch (computed 0da56592 wanted d80cf023)
+--00:00:00:05.232 22503--    object doesn't have a symbol table
+--00:00:00:05.234 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libvorbisfile.so.3.3.7
+--00:00:00:05.234 22503--    object doesn't have a symbol table
+--00:00:00:05.235 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libtdb.so.1.3.8
+--00:00:00:05.235 22503--    object doesn't have a symbol table
+--00:00:00:05.236 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libltdl.so.7.3.1
+--00:00:00:05.236 22503--   Considering /usr/lib/x86_64-linux-gnu/libltdl.so.7.3.1 ..
+--00:00:00:05.236 22503--   .. CRC mismatch (computed 8f61a187 wanted cdc1b5b4)
+--00:00:00:05.236 22503--    object doesn't have a symbol table
+--00:00:00:05.237 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libp11-kit.so.0.1.0
+--00:00:00:05.237 22503--    object doesn't have a symbol table
+--00:00:00:05.240 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libidn.so.11.6.15
+--00:00:00:05.240 22503--    object doesn't have a symbol table
+--00:00:00:05.241 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libtasn1.so.6.5.1
+--00:00:00:05.241 22503--    object doesn't have a symbol table
+--00:00:00:05.242 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libnettle.so.6.2
+--00:00:00:05.242 22503--   Considering /usr/lib/x86_64-linux-gnu/libnettle.so.6.2 ..
+--00:00:00:05.243 22503--   .. CRC mismatch (computed 3240267d wanted d7683e48)
+--00:00:00:05.243 22503--    object doesn't have a symbol table
+--00:00:00:05.244 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libhogweed.so.4.2
+--00:00:00:05.244 22503--   Considering /usr/lib/x86_64-linux-gnu/libhogweed.so.4.2 ..
+--00:00:00:05.245 22503--   .. CRC mismatch (computed 22df53ec wanted 0378f506)
+--00:00:00:05.245 22503--    object doesn't have a symbol table
+--00:00:00:05.247 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libgmp.so.10.3.0
+--00:00:00:05.247 22503--    object doesn't have a symbol table
+--00:00:00:05.250 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libvorbis.so.0.4.8
+--00:00:00:05.250 22503--    object doesn't have a symbol table
+--00:00:00:05.251 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libogg.so.0.8.2
+--00:00:00:05.252 22503--   Considering /usr/lib/x86_64-linux-gnu/libogg.so.0.8.2 ..
+--00:00:00:05.252 22503--   .. CRC mismatch (computed 79e45162 wanted f32912dd)
+--00:00:00:05.252 22503--    object doesn't have a symbol table
+--00:00:00:05.746 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/gtk-2.0/2.10.0/engines/libmurrine.so
+--00:00:00:05.747 22503--    object doesn't have a symbol table
+--00:00:00:05.797 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/gtk-2.0/2.10.0/engines/libpixmap.so
+--00:00:00:05.797 22503--   Considering /usr/lib/x86_64-linux-gnu/gtk-2.0/2.10.0/engines/libpixmap.so ..
+--00:00:00:05.798 22503--   .. CRC mismatch (computed 8ab5cb6a wanted aebf1b6e)
+--00:00:00:05.798 22503--    object doesn't have a symbol table
+--00:00:00:07.058 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/gtk-2.0/2.10.0/immodules/im-ibus.so
+--00:00:00:07.058 22503--    object doesn't have a symbol table
+--00:00:00:07.059 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/libibus-1.0.so.5.0.511
+--00:00:00:07.059 22503--    object doesn't have a symbol table
+--00:00:00:07.181 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/gio/modules/libgvfsdbus.so
+--00:00:00:07.182 22503--    object doesn't have a symbol table
+--00:00:00:07.185 22503-- Reading syms from /usr/lib/x86_64-linux-gnu/gvfs/libgvfscommon.so
+--00:00:00:07.185 22503--    object doesn't have a symbol table
+--00:00:00:07.706 22503-- REDIR: 0x68d0730 (libc.so.6:__strpbrk_sse42) redirected to 0x4c355b0 (strpbrk)
+--00:00:00:08.224 22503-- REDIR: 0x680aaa0 (libc.so.6:memalign) redirected to 0x4c2ff20 (memalign)
+--00:00:00:08.656 22503-- REDIR: 0x6825520 (libc.so.6:__GI_strncpy) redirected to 0x4c31310 (__GI_strncpy)
+Sun30
+--00:00:00:09.427 22503-- REDIR: 0x68d1ff0 (libc.so.6:__strncasecmp_avx) redirected to 0x4c31940 (strncasecmp)
+--00:00:00:09.432 22503-- Reading syms from /lib/x86_64-linux-gnu/libnss_compat-2.23.so
+--00:00:00:09.432 22503--   Considering /lib/x86_64-linux-gnu/libnss_compat-2.23.so ..
+--00:00:00:09.432 22503--   .. CRC mismatch (computed 2d5ee99a wanted 3967da7d)
+--00:00:00:09.432 22503--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libnss_compat-2.23.so ..
+--00:00:00:09.432 22503--   .. CRC is valid
+--00:00:00:09.435 22503-- Reading syms from /lib/x86_64-linux-gnu/libnsl-2.23.so
+--00:00:00:09.435 22503--   Considering /lib/x86_64-linux-gnu/libnsl-2.23.so ..
+--00:00:00:09.435 22503--   .. CRC mismatch (computed 8db6ee4e wanted d3ca6948)
+--00:00:00:09.435 22503--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libnsl-2.23.so ..
+--00:00:00:09.438 22503--   .. CRC is valid
+--00:00:00:09.447 22503-- REDIR: 0x68111a0 (libc.so.6:__GI_strcpy) redirected to 0x4c31110 (__GI_strcpy)
+--00:00:00:09.451 22503-- Reading syms from /lib/x86_64-linux-gnu/libnss_nis-2.23.so
+--00:00:00:09.451 22503--   Considering /lib/x86_64-linux-gnu/libnss_nis-2.23.so ..
+--00:00:00:09.452 22503--   .. CRC mismatch (computed 84877d53 wanted fc2e103a)
+--00:00:00:09.452 22503--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libnss_nis-2.23.so ..
+--00:00:00:09.452 22503--   .. CRC is valid
+--00:00:00:09.457 22503-- Reading syms from /lib/x86_64-linux-gnu/libnss_files-2.23.so
+--00:00:00:09.457 22503--   Considering /lib/x86_64-linux-gnu/libnss_files-2.23.so ..
+--00:00:00:09.457 22503--   .. CRC mismatch (computed 1470d07e wanted a928c2e4)
+--00:00:00:09.457 22503--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libnss_files-2.23.so ..
+--00:00:00:09.458 22503--   .. CRC is valid
+--00:00:00:21.028 22503-- Discarding syms at 0x13454e70-0x13c33d89 in /usr/lib/x86_64-linux-gnu/dri/swrast_dri.so due to munmap()
+--00:00:00:21.032 22503-- Discarding syms at 0x142f74d0-0x142fde64 in /usr/lib/x86_64-linux-gnu/libsensors.so.4.4.0 due to munmap()
+--00:00:00:21.034 22503-- Discarding syms at 0x145056c0-0x1450957c in /usr/lib/x86_64-linux-gnu/libdrm_nouveau.so.2.0.0 due to munmap()
+--00:00:00:21.036 22503-- Discarding syms at 0x1470d6d0-0x14714faf in /usr/lib/x86_64-linux-gnu/libdrm_radeon.so.1.0.1 due to munmap()
+--00:00:00:21.037 22503-- Discarding syms at 0x1491a200-0x1491ec07 in /usr/lib/x86_64-linux-gnu/libdrm_amdgpu.so.1.0.0 due to munmap()
+--00:00:00:21.040 22503-- Discarding syms at 0x14b24e60-0x14b343bc in /usr/lib/x86_64-linux-gnu/libelf-0.165.so due to munmap()
+--00:00:00:21.149 22503-- Discarding syms at 0x1e219350-0x1e21e1e6 in /usr/lib/x86_64-linux-gnu/qt5/plugins/platforminputcontexts/libcomposeplatforminputcontextplugin.so due to munmap()
+--00:00:00:21.163 22503-- Discarding syms at 0x1ae04920-0x1ae3432f in /usr/lib/x86_64-linux-gnu/qt5/plugins/platformthemes/libappmenu-qt5.so due to munmap()
+--00:00:00:21.166 22503-- Discarding syms at 0x1b0567a0-0x1b0737f7 in /usr/lib/x86_64-linux-gnu/libdbusmenu-qt5.so.2.6.0 due to munmap()
+--00:00:00:21.216 22503-- Discarding syms at 0x41f2a20-0x41f7bb8 in /usr/lib/x86_64-linux-gnu/qt5/plugins/xcbglintegrations/libqxcb-egl-integration.so due to munmap()
+--00:00:00:21.218 22503-- Discarding syms at 0x117164f0-0x11736559 in /usr/lib/x86_64-linux-gnu/mesa-egl/libEGL.so.1.0.0 due to munmap()
+--00:00:00:21.221 22503-- Discarding syms at 0x11b58700-0x11b5dcfe in /usr/lib/x86_64-linux-gnu/libgbm.so.1.0.0 due to munmap()
+--00:00:00:21.223 22503-- Discarding syms at 0x11d6a370-0x11d7017f in /usr/lib/x86_64-linux-gnu/libwayland-server.so.0.1.0 due to munmap()
+--00:00:00:21.225 22503-- Discarding syms at 0x1194c180-0x119509ff in /usr/lib/x86_64-linux-gnu/libwayland-client.so.0.3.0 due to munmap()
+--00:00:00:21.226 22503-- Discarding syms at 0x11f9af40-0x11fef0fd in /usr/lib/x86_64-linux-gnu/libmirclient.so.9 due to munmap()
+--00:00:00:21.229 22503-- Discarding syms at 0x122306f0-0x12252901 in /usr/lib/x86_64-linux-gnu/libmircommon.so.7 due to munmap()
+--00:00:00:21.232 22503-- Discarding syms at 0x12487370-0x124bfc7e in /usr/lib/x86_64-linux-gnu/libmirprotobuf.so.3 due to munmap()
+--00:00:00:21.234 22503-- Discarding syms at 0x12960730-0x129639dd in /usr/lib/x86_64-linux-gnu/libmircore.so.1 due to munmap()
+--00:00:00:21.236 22503-- Discarding syms at 0x12d78420-0x12d90a06 in /usr/lib/x86_64-linux-gnu/libprotobuf-lite.so.9.0.1 due to munmap()
+--00:00:00:21.238 22503-- Discarding syms at 0x12fa2960-0x12faf50f in /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.58.0 due to munmap()
+--00:00:00:21.240 22503-- Discarding syms at 0x12b67ff0-0x12b68c66 in /usr/lib/x86_64-linux-gnu/libboost_system.so.1.58.0 due to munmap()
+--00:00:00:21.244 22503-- Discarding syms at 0x4033330-0x40385c3 in /usr/lib/x86_64-linux-gnu/qt5/plugins/xcbglintegrations/libqxcb-glx-integration.so due to munmap()
+--00:00:00:21.257 22503-- Discarding syms at 0x4028250-0x402861a in /usr/lib/x86_64-linux-gnu/qt5/plugins/platforms/libqxcb.so due to munmap()
+--00:00:00:21.260 22503-- Discarding syms at 0xd89f1e0-0xd92014b in /usr/lib/x86_64-linux-gnu/libQt5XcbQpa.so.5.5.1 due to munmap()
+--00:00:00:21.262 22503-- Discarding syms at 0xdb665d0-0xdb67286 in /usr/lib/x86_64-linux-gnu/libxcb-render-util.so.0.0.0 due to munmap()
+--00:00:00:21.264 22503-- Discarding syms at 0xe396080-0xe397873 in /usr/lib/x86_64-linux-gnu/libxcb-image.so.0.0.0 due to munmap()
+--00:00:00:21.266 22503-- Discarding syms at 0xe59be70-0xe59cdb9 in /usr/lib/x86_64-linux-gnu/libxcb-icccm.so.4.0.0 due to munmap()
+--00:00:00:21.268 22503-- Discarding syms at 0xe7a17c0-0xe7a3b95 in /usr/lib/x86_64-linux-gnu/libxcb-xfixes.so.0.0.0 due to munmap()
+--00:00:00:21.270 22503-- Discarding syms at 0xebb07c0-0xebb4611 in /usr/lib/x86_64-linux-gnu/libxcb-randr.so.0.1.0 due to munmap()
+--00:00:00:21.272 22503-- Discarding syms at 0xedb9fe0-0xedbab85 in /usr/lib/x86_64-linux-gnu/libxcb-shape.so.0.0.0 due to munmap()
+--00:00:00:21.273 22503-- Discarding syms at 0xefbdb50-0xefbe3ce in /usr/lib/x86_64-linux-gnu/libxcb-keysyms.so.1.0.0 due to munmap()
+--00:00:00:21.275 22503-- Discarding syms at 0xf3dd840-0xf3e02bd in /usr/lib/x86_64-linux-gnu/libxkbcommon-x11.so.0.0.0 due to munmap()
+--00:00:00:21.277 22503-- Discarding syms at 0xf1c9060-0xf1d48f5 in /usr/lib/x86_64-linux-gnu/libxcb-xkb.so.1.0.0 due to munmap()
+--00:00:00:21.278 22503-- Discarding syms at 0xf829e50-0xf8446e5 in /usr/lib/x86_64-linux-gnu/libxkbcommon.so.0.0.0 due to munmap()
+--00:00:00:21.281 22503-- Discarding syms at 0xfa78c20-0xfacadac in /usr/lib/x86_64-linux-gnu/libQt5DBus.so.5.5.1 due to munmap()
+--00:00:00:21.283 22503-- Discarding syms at 0xfcea560-0xfceb30c in /usr/lib/x86_64-linux-gnu/libxcb-util.so.1.0.0 due to munmap()
+--00:00:00:21.389 22503-- Discarding syms at 0x25c8e2d0-0x25c93bf1 in /lib/x86_64-linux-gnu/libnss_compat-2.23.so due to munmap()
+--00:00:00:21.392 22503-- Discarding syms at 0x260b10b0-0x260b78aa in /lib/x86_64-linux-gnu/libnss_nis-2.23.so due to munmap()
+--00:00:00:21.395 22503-- Discarding syms at 0x25e99ff0-0x25ea71e1 in /lib/x86_64-linux-gnu/libnsl-2.23.so due to munmap()
+--00:00:00:21.397 22503-- Discarding syms at 0x262bd1b0-0x262c32a1 in /lib/x86_64-linux-gnu/libnss_files-2.23.so due to munmap()
+==00:00:00:21.405 22503== 
+==00:00:00:21.405 22503== FILE DESCRIPTORS: 9 open at exit.
+==00:00:00:21.405 22503== Open file descriptor 12:
+==00:00:00:21.405 22503==    at 0x688DB07: inotify_init1 (syscall-template.S:84)
+==00:00:00:21.405 22503==    by 0x1C7EE06F: ??? (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.4800.2)
+==00:00:00:21.405 22503==    by 0x1C7EEA05: ??? (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.4800.2)
+==00:00:00:21.405 22503==    by 0x1C7EF434: ??? (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.4800.2)
+==00:00:00:21.405 22503==    by 0x1C74CDD2: ??? (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.4800.2)
+==00:00:00:21.405 22503==    by 0x1C74CF4F: ??? (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.4800.2)
+==00:00:00:21.405 22503==    by 0x1C7E8F74: ??? (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.4800.2)
+==00:00:00:21.405 22503==    by 0x1C7E9AD4: ??? (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.4800.2)
+==00:00:00:21.405 22503==    by 0x1C7397EA: g_file_monitor_file (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.4800.2)
+==00:00:00:21.405 22503==    by 0x239D4249: ??? (in /usr/lib/x86_64-linux-gnu/libibus-1.0.so.5.0.511)
+==00:00:00:21.405 22503==    by 0x6DA0358: g_type_create_instance (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==00:00:00:21.405 22503==    by 0x6D81DF7: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==00:00:00:21.405 22503== 
+==00:00:00:21.405 22503== Open file descriptor 11:
+==00:00:00:21.405 22503==    at 0x688D6AC: eventfd (eventfd.c:28)
+==00:00:00:21.405 22503==    by 0x704D686: ??? (in /lib/x86_64-linux-gnu/libglib-2.0.so.0.4800.2)
+==00:00:00:21.405 22503==    by 0x7007AB2: g_main_context_new (in /lib/x86_64-linux-gnu/libglib-2.0.so.0.4800.2)
+==00:00:00:21.405 22503==    by 0x1C7D071B: ??? (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.4800.2)
+==00:00:00:21.405 22503==    by 0x1C7C42D6: ??? (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.4800.2)
+==00:00:00:21.405 22503==    by 0x1C7C4992: g_bus_get_sync (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.4800.2)
+==00:00:00:21.405 22503==    by 0x23C2765A: ??? (in /usr/lib/x86_64-linux-gnu/gio/modules/libgvfsdbus.so)
+==00:00:00:21.405 22503==    by 0x6DA0358: g_type_create_instance (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==00:00:00:21.405 22503==    by 0x6D8231A: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==00:00:00:21.405 22503==    by 0x6D83C00: g_object_newv (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==00:00:00:21.405 22503==    by 0x6D84533: g_object_new (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==00:00:00:21.405 22503==    by 0x1C74D030: ??? (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.4800.2)
+==00:00:00:21.405 22503== 
+==00:00:00:21.405 22503== Open file descriptor 10:
+==00:00:00:21.405 22503==    at 0x688D6AC: eventfd (eventfd.c:28)
+==00:00:00:21.405 22503==    by 0x704D686: ??? (in /lib/x86_64-linux-gnu/libglib-2.0.so.0.4800.2)
+==00:00:00:21.405 22503==    by 0x7007AB2: g_main_context_new (in /lib/x86_64-linux-gnu/libglib-2.0.so.0.4800.2)
+==00:00:00:21.405 22503==    by 0x700B254: ??? (in /lib/x86_64-linux-gnu/libglib-2.0.so.0.4800.2)
+==00:00:00:21.405 22503==    by 0x1C772E16: g_task_get_type (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.4800.2)
+==00:00:00:21.406 22503==    by 0x1C7D06D0: ??? (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.4800.2)
+==00:00:00:21.406 22503==    by 0x1C7C42D6: ??? (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.4800.2)
+==00:00:00:21.406 22503==    by 0x1C7C4992: g_bus_get_sync (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.4800.2)
+==00:00:00:21.406 22503==    by 0x23C2765A: ??? (in /usr/lib/x86_64-linux-gnu/gio/modules/libgvfsdbus.so)
+==00:00:00:21.406 22503==    by 0x6DA0358: g_type_create_instance (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==00:00:00:21.406 22503==    by 0x6D8231A: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==00:00:00:21.406 22503==    by 0x6D83C00: g_object_newv (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==00:00:00:21.406 22503== 
+==00:00:00:21.406 22503== Open AF_UNIX socket 9: <unknown>
+==00:00:00:21.406 22503==    at 0x688E5A7: socket (syscall-template.S:84)
+==00:00:00:21.406 22503==    by 0x1C763023: ??? (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.4800.2)
+==00:00:00:21.406 22503==    by 0x1C76672C: ??? (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.4800.2)
+==00:00:00:21.406 22503==    by 0x6D82896: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==00:00:00:21.406 22503==    by 0x6D841B4: g_object_new_valist (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==00:00:00:21.406 22503==    by 0x1C749A0D: g_initable_new_valist (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.4800.2)
+==00:00:00:21.406 22503==    by 0x1C749AD5: g_initable_new (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.4800.2)
+==00:00:00:21.406 22503==    by 0x1C763147: g_socket_new (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.4800.2)
+==00:00:00:21.406 22503==    by 0x1C7690B7: ??? (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.4800.2)
+==00:00:00:21.406 22503==    by 0x1C76A2C2: g_socket_client_connect (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.4800.2)
+==00:00:00:21.406 22503==    by 0x1C7B310C: ??? (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.4800.2)
+==00:00:00:21.406 22503==    by 0x1C7B36A7: g_dbus_address_get_stream_sync (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.4800.2)
+==00:00:00:21.406 22503== 
+==00:00:00:21.406 22503== Open AF_UNIX socket 6: <unknown>
+==00:00:00:21.406 22503==    at 0x688E5A7: socket (syscall-template.S:84)
+==00:00:00:21.406 22503==    by 0x9208F8C: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==00:00:00:21.406 22503==    by 0x92096F1: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==00:00:00:21.406 22503==    by 0x730D8A9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==00:00:00:21.406 22503==    by 0x72FE421: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==00:00:00:21.406 22503==    by 0x1B918288: gdk_display_open (in /usr/lib/x86_64-linux-gnu/libgdk-x11-2.0.so.0.2400.30)
+==00:00:00:21.406 22503==    by 0x1B8E7FCE: gdk_display_open_default_libgtk_only (in /usr/lib/x86_64-linux-gnu/libgdk-x11-2.0.so.0.2400.30)
+==00:00:00:21.406 22503==    by 0x1B3AF564: gtk_init (in /usr/lib/x86_64-linux-gnu/libgtk-x11-2.0.so.0.2400.30)
+==00:00:00:21.406 22503==    by 0x1AE07DD6: ???
+==00:00:00:21.406 22503==    by 0x1AE08C83: ???
+==00:00:00:21.406 22503==    by 0x55A964A: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.5.1)
+==00:00:00:21.406 22503==    by 0x55B30D7: QGuiApplicationPrivate::createPlatformIntegration() (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.5.1)
+==00:00:00:21.406 22503== 
+==00:00:00:21.406 22503== Open file descriptor 5:
+==00:00:00:21.406 22503==    at 0x688D6AC: eventfd (eventfd.c:28)
+==00:00:00:21.406 22503==    by 0x704D686: ??? (in /lib/x86_64-linux-gnu/libglib-2.0.so.0.4800.2)
+==00:00:00:21.406 22503==    by 0x7007AB2: g_main_context_new (in /lib/x86_64-linux-gnu/libglib-2.0.so.0.4800.2)
+==00:00:00:21.406 22503==    by 0x7007B8C: g_main_context_default (in /lib/x86_64-linux-gnu/libglib-2.0.so.0.4800.2)
+==00:00:00:21.406 22503==    by 0x70093E4: g_main_context_push_thread_default (in /lib/x86_64-linux-gnu/libglib-2.0.so.0.4800.2)
+==00:00:00:21.406 22503==    by 0x5CEB1C0: QEventDispatcherGlibPrivate::QEventDispatcherGlibPrivate(_GMainContext*) (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.5.1)
+==00:00:00:21.406 22503==    by 0x5CEB400: QEventDispatcherGlib::QEventDispatcherGlib(QObject*) (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.5.1)
+==00:00:00:21.406 22503==    by 0x5AB38CF: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.5.1)
+==00:00:00:21.406 22503==    by 0x5AB4837: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.5.1)
+==00:00:00:21.406 22503==    by 0x6B576B9: start_thread (pthread_create.c:333)
+==00:00:00:21.406 22503==    by 0x688D41C: clone (clone.S:109)
+==00:00:00:21.406 22503== 
+==00:00:00:21.406 22503== Open file descriptor 2: /root/SolarSystem/valgrind_passed_config_run
+==00:00:00:21.406 22503==    <inherited from parent>
+==00:00:00:21.406 22503== 
+==00:00:00:21.406 22503== Open file descriptor 1: /root/SolarSystem/valgrind_passed_config_run
+==00:00:00:21.406 22503==    <inherited from parent>
+==00:00:00:21.406 22503== 
+==00:00:00:21.406 22503== Open file descriptor 0: /dev/pts/1
+==00:00:00:21.406 22503==    <inherited from parent>
+==00:00:00:21.406 22503== 
+==00:00:00:21.406 22503== 
+==00:00:00:21.407 22503== HEAP SUMMARY:
+==00:00:00:21.407 22503==     in use at exit: 1,814,437 bytes in 19,530 blocks
+==00:00:00:21.407 22503==   total heap usage: 270,894 allocs, 251,364 frees, 42,212,955 bytes allocated
+==00:00:00:21.407 22503== 
+==00:00:00:21.423 22503== Searching for pointers to 18,395 not-freed blocks
+==00:00:00:21.543 22503== Checked 28,850,112 bytes
+==00:00:00:21.543 22503== 
+==00:00:00:21.581 22503== LEAK SUMMARY:
+==00:00:00:21.581 22503==    definitely lost: 0 bytes in 0 blocks
+==00:00:00:21.581 22503==    indirectly lost: 0 bytes in 0 blocks
+==00:00:00:21.581 22503==      possibly lost: 0 bytes in 0 blocks
+==00:00:00:21.581 22503==    still reachable: 0 bytes in 0 blocks
+==00:00:00:21.581 22503==                       of which reachable via heuristic:
+==00:00:00:21.581 22503==                         length64           : 7,960 bytes in 100 blocks
+==00:00:00:21.581 22503==                         newarray           : 2,192 bytes in 57 blocks
+==00:00:00:21.581 22503==         suppressed: 1,550,845 bytes in 18,395 blocks
+==00:00:00:21.581 22503== 
+==00:00:00:21.581 22503== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 38 from 38)
+--00:00:00:21.581 22503-- 
+--00:00:00:21.581 22503-- used_suppression:   9005 ignore_usr_libs suppresions:14 suppressed: 1,565,586 bytes in 18,395 blocks
+==00:00:00:21.581 22503== 
+==00:00:00:21.581 22503== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 38 from 38)

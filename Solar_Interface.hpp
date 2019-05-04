@@ -12,10 +12,11 @@
 
 class Solar_Interface : public QWidget
 {
-        Q_OBJECT
+    Q_OBJECT
 
     public:
         Solar_Interface(QWidget *parent = 0);
+        void on_start_load(char *);
         void timerEvent(QTimerEvent *);
         void paintEvent(QPaintEvent *);
         void clear (QPainter & paint);
@@ -40,6 +41,8 @@ class Solar_Interface : public QWidget
         double curr_time; // period: 6,3
         double speed;
         QString dir;
+
+        std::vector< std::pair<int,int> > stars;
 };
 
 #endif // SOLAR_INTERFACE_H

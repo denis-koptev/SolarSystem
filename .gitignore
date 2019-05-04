@@ -1,0 +1,6 @@
+*.o
+*.stash
+out.txt
+moc_*
+solar_interface_win
+condition.log

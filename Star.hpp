@@ -5,11 +5,11 @@
 
 class Star : public SpaceObject
 {
-	public:
-		Star();
-		Star(const std::string & name, double mass,
-		     double rad, const Coordinates & position);
-		std::string toString() const;
+    public:
+        Star();
+        Star(const std::string & name, double mass,
+             double rad, const Coordinates & position);
+        std::string toString() const;
 };
 
 #endif
