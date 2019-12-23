@@ -9,7 +9,7 @@ class SolarSystem
 {
     private:
 
-        typedef std::vector<Planet> vector;
+        typedef std::vector< Planet > vector;
         typedef vector::iterator iterator;
         typedef vector::const_iterator c_iterator;
 
@@ -31,12 +31,12 @@ class SolarSystem
         size_t getSize() const;
 
         void planetsMovement(double);
-        bool CheckCollision() const;
+        bool checkCollision() const;
 
         std::string toString() const;
-        void output(const char *filename, bool append) const;
-        void input(const char *filename);
-        void save(const char *filename) const;
+        void output(const char * filename, bool append) const;
+        void input(const char * filename);
+        void save(const char * filename) const;
 
         void clear();
 };

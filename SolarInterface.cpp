@@ -1,25 +1,25 @@
-#include "Solar_Interface.hpp"
+#include "SolarInterface.hpp"
 #include <string>
 #include <QFileDialog>
 
 #define STARS_NUM 500
 
-std::pair<int, int> get_random_coordinates(int x_start, int x_end, int y_start, int y_end)
+static SolarInterface::coord_t get_random_coordinates(int x_start, int x_end,
+                                                      int y_start, int y_end)
 {
-    int x,y;
+    int x, y;
     x = (rand() % (x_end-x_start+1) + x_start);
     y = (rand() % (y_end-y_start+1) + y_start);
 
-    return std::pair<int,int>(x,y);
+    return SolarInterface::coord_t(x, y);
 }
 
-Solar_Interface::Solar_Interface(QWidget *parent)
+SolarInterface::SolarInterface(QWidget *parent)
     : QWidget(parent)
 {
-    for (int i = 0; i < STARS_NUM; ++i)
-    {
-        std::pair<int,int> coords = get_random_coordinates(100, 1270, 10, 710);
-        stars.push_back(coords);
+    for (int i = 0; i < STARS_NUM; ++i) {
+        coord_t coord = get_random_coordinates(100, 1270, 10, 710);
+        stars.push_back(coord);
     }
 
     // ui->setUi(this);
@@ -57,11 +57,11 @@ Solar_Interface::Solar_Interface(QWidget *parent)
     speed =  0.01;
     startTimer(20);
 
-//    int * arr = new int[1024];
-//    arr[5] = 555;
+    /* Initialize working directory as current directory */
+    dir = "./";
 }
 
-void Solar_Interface::timerEvent(QTimerEvent *)
+void SolarInterface::timerEvent(QTimerEvent *)
 {
     //static long long int iterations = 0;
     //iterations++;
@@ -74,7 +74,7 @@ void Solar_Interface::timerEvent(QTimerEvent *)
     // recountTime();
 }
 
-void Solar_Interface::paintEvent(QPaintEvent *)
+void SolarInterface::paintEvent(QPaintEvent *)
 {
     QPainter paint(this);
     clear(paint);
@@ -83,12 +83,10 @@ void Solar_Interface::paintEvent(QPaintEvent *)
 
     if (my_system.getSize() == 0) return;
 
-    try
-    {
+    try {
         my_system.planetsMovement(curr_time);
     }
-    catch (std::exception & ex)
-    {
+    catch (const std::exception & ex) {
         QString error(ex.what());
         paint.setPen(Qt::red);
         paint.drawText(110, 700, error.toStdString().c_str());
@@ -101,8 +99,7 @@ void Solar_Interface::paintEvent(QPaintEvent *)
     std::vector<Planet> planets = my_system.getPlanets();
     Star sun = my_system.getStar();
 
-    for (int i = 0; i < STARS_NUM; ++i)
-    {
+    for (int i = 0; i < STARS_NUM; ++i) {
         int star_x = stars[i].first;
         int star_y = stars[i].second;
         paint.drawEllipse(star_x, star_y, 2, 2);
@@ -119,41 +116,33 @@ void Solar_Interface::paintEvent(QPaintEvent *)
     paint.drawText(110, 30, info.c_str());
     paint.setPen(Qt::black);
 
-    for (std::vector<Planet>::iterator i = planets.begin(); i != planets.end(); ++i)
-    {
+    for (std::vector<Planet>::iterator i = planets.begin(); i != planets.end(); ++i) {
         info = i->getName() + ": " + doubleToString(i->getPosition().getX()) +
             ", " + doubleToString(i->getPosition().getY());
         paint.setPen(Qt::white);
         paint.drawText(110, 45 + 15 * std::distance(planets.begin(), i), info.c_str());
         paint.setPen(Qt::black);
 
-        if (i->getColor() == "blue")
-        {
+        if (i->getColor() == "blue") {
             paint.setBrush(QBrush(Qt::blue));
         }
-        else if (i->getColor() == "red")
-        {
+        else if (i->getColor() == "red") {
             paint.setBrush(QBrush(Qt::red));
         }
-        else if (i->getColor() == "green")
-        {
+        else if (i->getColor() == "green") {
             paint.setBrush(QBrush(Qt::green));
         }
-        else if (i->getColor() == "gray")
-        {
+        else if (i->getColor() == "gray") {
             paint.setBrush(QBrush(Qt::gray));
         }
-        else if (i->getColor() == "magenta")
-        {
+        else if (i->getColor() == "magenta") {
             paint.setBrush(QBrush(Qt::magenta));
         }
-        else if (i->getColor() == "orange")
-        {
+        else if (i->getColor() == "orange") {
             QColor c("orange");
             paint.setBrush(QBrush(c));
         }
-        else
-        {
+        else {
             paint.setBrush(QBrush(Qt::white));
         }
 
@@ -162,20 +151,19 @@ void Solar_Interface::paintEvent(QPaintEvent *)
                 2 * i->getRad(), 2 * i->getRad());
     }
 
-    if (curr_time > 6.28)
-    {
+    if (curr_time > 6.28) {
         curr_time = 0;
     }
 
     curr_time += speed;
 }
 
-void Solar_Interface::clear(QPainter & paint)
+void SolarInterface::clear(QPainter & paint)
 {
     paint.eraseRect(100, 10, 1170, 700);
 }
 
-Solar_Interface::~Solar_Interface()
+SolarInterface::~SolarInterface()
 {
     delete load_b;
     delete save_b;
@@ -185,79 +173,86 @@ Solar_Interface::~Solar_Interface()
     delete speed_down;
 }
 
-void Solar_Interface::on_save_b_clicked()
+void SolarInterface::on_save_b_clicked()
 {
-    try
-    {
+    std::cout << "[SAVE] Saving state to condition.log" << std::endl;
+    try {
         my_system.save((dir.toStdString() + "/condition.log").c_str());
     }
-    catch (std::exception & ex) {
+    catch (const std::exception & ex) {
         std::cout << ex.what() << std::endl;
     };
 }
 
-void Solar_Interface::on_load_b_clicked()
+void SolarInterface::on_load_b_clicked()
 {
-    try
-    {
+    std::cout << "[LOAD] Loading state from condition.log" << std::endl;
+    try {
         my_system.input((dir.toStdString() + "/condition.log").c_str());
     }
-    catch (std::exception & ex) {
+    catch (const std::exception & ex) {
         std::cout << ex.what() << std::endl;
     };
 
     curr_time = 0;
 }
 
-void Solar_Interface::on_in_text_clicked()
+void SolarInterface::on_in_text_clicked()
 {
-    try
-    {
+    std::cout << "[OUTPUT] Printing state to out.txt" << std::endl;
+    try {
         my_system.output((dir.toStdString() + "/out.txt").c_str(), true);
     }
-    catch (std::exception & ex) {
+    catch (const std::exception & ex) {
         std::cout << ex.what() << std::endl;
     };
 }
 
-void Solar_Interface::on_speed_up_clicked()
+void SolarInterface::on_speed_up_clicked()
 {
-    speed += 0.001;
+    if (speed < 0.1) {
+       speed += 0.001;
+    }
+    std::cout << "[SPEED UP] New speed: " << speed << std::endl;
 }
 
-void Solar_Interface::on_speed_down_clicked()
+void SolarInterface::on_speed_down_clicked()
 {
     if (speed >= 0.002)
     {
         speed -= 0.001;
     }
+    std::cout << "[SPEED DOWN] New speed: " << speed << std::endl;
 }
 
-void Solar_Interface::on_setup_b_clicked()
+void SolarInterface::on_setup_b_clicked()
 {
+    std::cout << "[SETUP] User is loading model" << std::endl;
+
     QString filename = QFileDialog::getOpenFileName();
     dir = filename;
     dir.truncate(dir.lastIndexOf('/'));
 
-    try
-    {
+    try {
         my_system.input(filename.toStdString().c_str());
         my_system.output((dir.toStdString() + "/out.txt").c_str(), false);
     }
-    catch (std::exception & ex) {
+    catch (const std::exception & ex) {
         std::cout << ex.what() << std::endl;
     };
 
     curr_time = 0;
 }
 
-void Solar_Interface::on_start_load(char * filename)
+void SolarInterface::on_start_load(const char * filename)
 {
-    if (filename == NULL)
+    if (filename == NULL) {
         throw std::invalid_argument("No filename specified");
+    }
 
-    try
-    {
+    std::cout << "[ON START LOAD] Loading from argument: " << filename << std::endl;
+
+    try {
         my_system.input(filename);
     }
     catch (const std::exception & ex) {

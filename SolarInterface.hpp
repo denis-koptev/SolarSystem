@@ -10,17 +10,20 @@
 
 #include "SolarSystem.hpp"
 
-class Solar_Interface : public QWidget
+class SolarInterface : public QWidget
 {
     Q_OBJECT
 
     public:
-        Solar_Interface(QWidget *parent = 0);
-        void on_start_load(char *);
+
+        using coord_t = std::pair< int, int >;
+
+        SolarInterface(QWidget *parent = 0);
+        void on_start_load(const char *);
         void timerEvent(QTimerEvent *);
         void paintEvent(QPaintEvent *);
         void clear (QPainter & paint);
-        ~Solar_Interface();
+        ~SolarInterface();
 
     private slots:
 
@@ -42,7 +45,7 @@ class Solar_Interface : public QWidget
         double speed;
         QString dir;
 
-        std::vector< std::pair<int,int> > stars;
+        std::vector< coord_t > stars;
 };
 
 #endif // SOLAR_INTERFACE_H

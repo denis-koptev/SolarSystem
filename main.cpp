@@ -1,10 +1,10 @@
-#include "Solar_Interface.hpp"
+#include "SolarInterface.hpp"
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Solar_Interface my_interface;
+    SolarInterface my_interface;
     if (argc == 2) {
         my_interface.on_start_load(argv[1]);
     }
